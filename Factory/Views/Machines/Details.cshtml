@@ -8,7 +8,7 @@
 
 <h3>Name: @Html.DisplayFor(model => model.Name)</h3>
 
-<h3>@Html.DisplayFor(model => model.Name) is licensed to work on the following machines:</h3>
+<h3>@Html.DisplayFor(model => model.Name)'s can be worked on by the following engineers:</h3>
 @if (@Model.JoinEntities.Count == 0)
 {
   <p>@Html.DisplayFor(model => model.Name) is not licensed to work on any machines.</p>
@@ -37,4 +37,4 @@ else
 <hr>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Add Machine to Engineer", "AddEngineer", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add machine to engineer", "AddEngineer", new { id = Model.MachineId })</p>

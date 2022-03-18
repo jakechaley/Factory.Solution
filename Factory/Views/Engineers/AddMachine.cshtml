@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>Add an machine to an engineer</h2>
+
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  @Html.Label("Choose machine:")
+  @Html.DropDownList("MachineId")
+  <br>
+  <input type="submit" value="Add machine to engineer" />
+}
