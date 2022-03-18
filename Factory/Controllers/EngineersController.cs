@@ -55,7 +55,7 @@ namespace Factory.Controllers
     {
       _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction(Index);
+      return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
