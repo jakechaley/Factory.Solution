@@ -1,0 +1,40 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h1>Details for @Html.DisplayFor(model => model.Name)</h1>
+
+<h3>Name: @Html.DisplayFor(model => model.Name)</h3>
+
+<h3>@Html.DisplayFor(model => model.Name) is licensed to work on the following machines:</h3>
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>@Html.DisplayFor(model => model.Name) is not licensed to work on any machines.</p>
+}
+else 
+{
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink(@join.Engineer.Name, "Details", "Engineers", new { id = join.Engineer.EngineerId})</li>
+    }
+  </ul>
+}
+<hr>
+<h4>Delete @Html.DisplayFor(model => model.Name) from Engineer:</h4>
+<ul>
+  @foreach (var join in Model.JoinEntities)
+  {
+    @using (Html.BeginForm("DeleteEngineer", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Remove from @join.Engineer.Name" />
+    }
+  }
+</ul>
+<hr>
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Add Machine to Engineer", "AddEngineer", new { id = Model.MachineId })</p>
