@@ -4,7 +4,7 @@
 
 @model Factory.Models.Machine
 
-<h2>Add an engineer to a machine</h2>
+<h2>Add @Html.DisplayFor(model => model.Name) to an engineer</h2>
 
 
 @using (Html.BeginForm())
@@ -13,5 +13,5 @@
   @Html.Label("Choose engineer:")
   @Html.DropDownList("EngineerId")
   <br>
-  <input type="submit" value="Add Engineer to Machine" />
+  <input type="submit" value="Add machine to engineer" />
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace Factory.Controllers
 {
@@ -75,7 +76,7 @@ namespace Factory.Controllers
 
     public ActionResult AddMachine(int id)
     {
-      var thisEngineer= _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
       return View(thisEngineer);
     }
@@ -85,6 +86,8 @@ namespace Factory.Controllers
     {
       if (MachineId != 0)
       {
+        Console.WriteLine(MachineId);
+        Console.WriteLine(engineer.EngineerId);
         _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
       }

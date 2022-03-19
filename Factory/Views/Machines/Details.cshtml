@@ -37,4 +37,4 @@ else
 <hr>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
-<p>@Html.ActionLink("Add machine to engineer", "AddEngineer", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink($"Add {Model.Name} to engineer", "AddEngineer", new { id = Model.MachineId })</p>

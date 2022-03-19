@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Factory.Controllers
 {
@@ -79,6 +80,8 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
+        Console.WriteLine(EngineerId);
+        Console.WriteLine(machine.MachineId);
         _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
         _db.SaveChanges();
       }
