@@ -86,8 +86,6 @@ namespace Factory.Controllers
     {
       if (MachineId != 0)
       {
-        Console.WriteLine(MachineId);
-        Console.WriteLine(engineer.EngineerId);
         _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
       }
